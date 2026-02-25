@@ -47,12 +47,38 @@ const quotes = [
     "Chamou quem já foi 2x",
     "Cheguei meio atrasado",
     "Alguém teve que sair no meio da daily",
-    "Que barbada"
+    "Que barbada",
+    "Maurício iniciou a daily",
+    "Fernanda iniciou a daily",
+    "Gabriel iniciou a daily",
+    "Alguém bebeu café"
 ];
 
-function generateCard() {
+const bingoSound = new Audio("audio/bingo.mp3");
+const toggle = document.getElementById("toggleDarkMode");
+
+let gameFinished = false;
+
+if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark");
+    toggle.checked = true;
+}
+
+toggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "darkMode",
+        document.body.classList.contains("dark")
+    );
+});
+
+function generateCard() {    
+    gameFinished = false;
+
     const bingoCard = document.getElementById("bingoCard");
     bingoCard.innerHTML = "";
+    bingoCard.style.display = "grid";
   
     // Randomizar frases
     const randomizedQuotes = quotes
@@ -78,6 +104,8 @@ function generateCard() {
         } else {
             div.textContent = quote;
             div.addEventListener("click", () => {
+                if (gameFinished) return;
+
                 div.classList.toggle("marked");
                 verifyBingo();
             });
@@ -110,6 +138,8 @@ function generateCard() {
     Qualquer uma das duas = 5 => Bingo
 */
 function verifyBingo() {
+    if (gameFinished) return;
+
     const cells = document.querySelectorAll(".cell.marked");
 
     const rows = Array(5).fill(0);
@@ -136,7 +166,14 @@ function verifyBingo() {
         }
     });
 
-    if (rows.includes(5) || columns.includes(5) || diagonalMain == size || diagonalSec === size) {
-        alert("!BINGO!");
+    if (rows.includes(5) || columns.includes(5) || diagonalMain === size || diagonalSec === size) {
+        gameFinished = true;
+
+        bingoSound.currentTime = 0;
+        bingoSound.play();
+
+        setTimeout(() => {
+            alert("!BINGO!");
+        }, 50);        
     }
 }
