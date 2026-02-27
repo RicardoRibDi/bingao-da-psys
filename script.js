@@ -25,9 +25,6 @@ const quotes = [
 	"Rotina de Estudos (E variações)",
 	"Aeromot",
 	"TAM",
-    "Daily 30+ min",
-    "Daily 30- min",
-    "Daily 40+ min",
     "Papo de corrida",
     "Chama o Laércio",
     "Pra quem trabalha funciona",
@@ -36,7 +33,7 @@ const quotes = [
     "Compesa",
     "Xingar o ambiente/alguém IFS",
     "LUAN GAMEPLAYS",
-    "Ríder",
+    //"Ríder",
     "Precisar de ajuda é só chamar",
     "Joinha do Prass",
     "Nickzinho ligou a câmera",
@@ -48,11 +45,15 @@ const quotes = [
     "Cheguei meio atrasado",
     "Alguém teve que sair no meio da daily",
     "Que barbada",
-    "Maurício iniciou a daily",
-    "Fernanda iniciou a daily",
-    "Gabriel iniciou a daily",
-    "Alguém bebeu café"
+    "Alguém bebeu café",
+    "CEDAE",
+    "VAP"
 ];
+
+// Frases com variacoes
+const startedDaily = ["Fernanda", "Gabriel", "Maurício"];
+const dailyTime = ["30-","30+","40+"];
+
 
 const bingoSound = new Audio("audio/bingo.mp3");
 const toggle = document.getElementById("toggleDarkMode");
@@ -79,9 +80,14 @@ function generateCard() {
     const bingoCard = document.getElementById("bingoCard");
     bingoCard.innerHTML = "";
     bingoCard.style.display = "grid";
-  
-    // Randomizar frases
-    const randomizedQuotes = quotes
+    
+    // Randomizar frases    
+    const quoteStartedDaily = startedDaily[Math.floor(Math.random() * startedDaily.length)] + " iniciou a daily";
+    const quoteDailyTime = "Daily " + dailyTime[Math.floor(Math.random() * dailyTime.length)] + " mins";
+
+    const allQuotes = [...quotes, quoteStartedDaily, quoteDailyTime];
+
+    const randomizedQuotes = [...allQuotes]
     .sort(() => Math.random() - 0.5)
     .slice(0, 25);
 
