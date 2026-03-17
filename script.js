@@ -1,53 +1,80 @@
 const quotes = [
-    "É",
+    //Prass
     "Mestre",
     "Xirú",
-	"Fui o último?",
-	"Arania",
-	"Falta alguém?",
-	"CELEC",
-	"Espero que estejam todos bem",
-	"Eu já fui",
-	"Gaspareto",
-	"Bom dia Machado",
-	"WSS",
-	"D'artagnan",
-	"Passa pra mim (E variações)",
-	"Maumau Carente",
-    "Tu tá mutado",
-	"Internet Instável",
-	"Desligou a câmera",
-	"Cu do gato do Sampaio",
+    "Joinha do Prass",
+
+    //Mauricio
+    "Maumau Carente",
 	"Maurício interrompeu alguém",
     "Sons de Maurício",
-    "Passo pra quem não foi",
-    "Japa",
-	"Rotina de Estudos (E variações)",
+
+    //Gabriel
+    "Beleza beleza",
+
+    //Gabriela
+    "LUAN GAMEPLAYS",
+
+    //Nickzinho
+    "É",
+    "Nickzinho ligou a câmera",
+
+    //Lucas
+    "Lucas atrasado na daily",
+
+    //Machado
+    "Bom dia Machado",
+
+    //Sampaio
+    "Sampaio já foi?",
+	"Cu do gato do Sampaio",
+    "Flashbang no Sampaio",
+
+    //Geral
+    //"WSS",
 	"Aeromot",
 	"TAM",
-    "Papo de corrida",
-    "Chama o Laércio",
-    "Pra quem trabalha funciona",
-    "Reforma tributária",
-    "Beleza beleza",
     "Compesa",
-    "Xingar o ambiente/alguém IFS",
-    "LUAN GAMEPLAYS",
-    //"Ríder",
-    "Precisar de ajuda é só chamar",
-    "Joinha do Prass",
-    "Nickzinho ligou a câmera",
-    "Gabrielzinho",
-    "Variações de Micaelle",
-    "Migué pra não falar",
+    "CEDAE",
+	"Arania",
+	"CELEC",
+    "Flexaero",
+
+	"Espero que estejam todos bem",
+    "Tu tá mutado",
+
+	"Passa pra mim (E variações)",
+    "Eu já fui",
     "Chamou quem já foi",
     "Chamou quem já foi 2x",
     "Cheguei meio atrasado",
+	"Falta alguém?",
+	"Fui o último?",
+    "Da minha parte é isso",
+
+    "Gaspareto",
+	"D'artagnan",
+    "Gabrielzinho",
+    "Variações de Micaelle",
+    "Japa",
+    "Chama o Laércio",
+    "Precisar de ajuda é só chamar",
+
+	"Internet Instável",
+	"Desligou a câmera",
+    "Passo pra quem não foi",
+	"Rotina de Estudos (E variações)",
+    "Papo de corrida",
+    "Pra quem trabalha funciona",
+    "Reforma tributária",
+    "Xingar o ambiente/alguém IFS",
+    "Migué pra não falar",
     "Alguém teve que sair no meio da daily",
     "Que barbada",
     "Alguém bebeu café",
-    "CEDAE",
-    "VAP"
+    "VAP",
+    "Tá ligado",
+    //"Ríder",
 ];
 
 // Frases com variacoes
@@ -74,14 +101,14 @@ toggle.addEventListener("change", () => {
     );
 });
 
-function generateCard() {    
+function generateCard() {
     gameFinished = false;
 
     const bingoCard = document.getElementById("bingoCard");
     bingoCard.innerHTML = "";
     bingoCard.style.display = "grid";
-    
-    // Randomizar frases    
+
+    // Randomizar frases
     const quoteStartedDaily = startedDaily[Math.floor(Math.random() * startedDaily.length)] + " iniciou a daily";
     const quoteDailyTime = "Daily " + dailyTime[Math.floor(Math.random() * dailyTime.length)] + " mins";
 
@@ -97,13 +124,13 @@ function generateCard() {
     randomizedQuotes.forEach((quote, index) => {
         const div = document.createElement("div");
         div.classList.add("cell");
-        
+
         const row = Math.floor(index / size);
         const column = index % size;
 
         div.dataset.row = row;
         div.dataset.column = column;
-        
+
         if (row === center && column === center) {
             div.classList.add("mamaco", "marked");
             div.innerHTML = '<img src="img/ApesTogetherStrong.png" alt="Apes Together Strong" style="max-width: 100%;">'
@@ -123,13 +150,13 @@ function generateCard() {
 // Win condition
 /*
     Varre a matriz verificando cada célula marcada.
-    
+
     Quando encontra uma célular marcada, incrementa o contador para aquela linha/coluna.
     Array row verifica se existem 5 adjacentes marcador horizontalmente.
     Array column verifica se existem 5 adjacentes marcador verticalmente.
     Ex.: Linhas ou Colunas => [0,0,0,5,0] => Bingo
 
-    Variável diagonalMain é incrementada a cada ocorrência em que a row/column sejam iguais. 
+    Variável diagonalMain é incrementada a cada ocorrência em que a row/column sejam iguais.
         [0,0] [x,x] [x,x] [x,x] [x,x]
         [x,x] [1,1] [x,x] [x,x] [x,x]
         [x,x] [x,x] [2,2] [x,x] [x,x]
@@ -150,7 +177,7 @@ function verifyBingo() {
 
     const rows = Array(5).fill(0);
     const columns = Array(5).fill(0);
-    
+
     const size = 5;
 
     let diagonalMain = 0;
@@ -162,11 +189,11 @@ function verifyBingo() {
 
         rows[row]++;
         columns[column]++;
-        
+
         if (row == column) {
             diagonalMain++;
         }
-            
+
         if (row + column == size - 1) {
             diagonalSec++;
         }
@@ -180,6 +207,6 @@ function verifyBingo() {
 
         setTimeout(() => {
             alert("!BINGO!");
-        }, 50);        
+        }, 50);
     }
 }
