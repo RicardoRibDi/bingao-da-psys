@@ -75,6 +75,8 @@ const quotes = [
     "VAP",
     "Tá ligado",
     //"Ríder",
+    "Falar de estimativa",
+    "Falei com o Milton  ( ͡° ͜ʖ ͡°)"
 ];
 
 // Frases com variacoes
