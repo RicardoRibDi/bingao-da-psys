@@ -27,11 +27,11 @@ const quotes = [
 
     //Sampaio
     "Sampaio já foi?",
-	"Cu do gato do Sampaio",
+	"Gato do Sampaio",
     "Flashbang no Sampaio",
 
     //Geral
-    //"WSS",
+    "WSS",
 	"Aeromot",
 	"TAM",
     "Compesa",
@@ -53,7 +53,7 @@ const quotes = [
     "Da minha parte é isso",
 
     "Gaspareto",
-	"D'artagnan",
+	//"D'artagnan",
     "Gabrielzinho",
     "Variações de Micaelle",
     "Japa",
