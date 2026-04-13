@@ -208,7 +208,82 @@ function verifyBingo() {
         bingoSound.play();
 
         setTimeout(() => {
-            alert("!BINGO!");
+            showBingoAnimation();
         }, 50);
     }
+}
+function showBingoAnimation() {
+    const overlay = document.getElementById("bingoOverlay");
+
+    generateConfetti();
+    generateBalloons();
+
+    overlay.onclick = () => {
+        overlay.classList.add("hidden");
+    };
+}
+function generateConfetti() {
+    for (let i = 0; i < 1000; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        confetti.style.backgroundColor = getRandomColor();
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 5000);
+    }
+}
+
+function getRandomColor() {
+    const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+function generateBalloons() {
+    const container = document.getElementById("balloonsContainer");
+
+    balloonsOnScreen = 100;
+
+    for (let i = 0; i < 50; i++) {
+        const balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+
+        balloon.style.left = Math.random() * 100 + "vw";
+        balloon.style.animationDuration = (Math.random() * 5 + 5) + "s";
+
+        const img = document.createElement("img");
+        img.src = "img/sou-foda.png";
+
+        balloon.appendChild(img);
+
+        balloon.addEventListener("click", (e) => {
+            popBalloon(balloon, e);
+            decrementBalloons();
+        });
+
+        container.appendChild(balloon);
+
+        setTimeout(() => {
+            balloon.remove();
+            decrementBalloons();
+        }, 10000);
+    }
+}
+function popBalloon(balloon, event) {
+    balloon.remove();
+
+    const text = document.createElement("div");
+    text.classList.add("pop-text");
+    text.innerText = "Sou foda";
+
+    text.style.left = event.clientX + "px";
+    text.style.top = event.clientY + "px";
+
+    text.style.color = getRandomColor();
+
+    document.body.appendChild(text);
+
+ setTimeout(() => text.remove(), 1500);
 }
