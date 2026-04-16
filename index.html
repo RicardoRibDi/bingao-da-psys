@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <title>Bingão da Daily</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="scoreboard.css">
 </head>
 <body>
   <h1>Bingão da Daily</h1>
 
   <button onclick="generateCard()">Gerar Cartela</button>
+  <a href="scoreboard.html" class="nav-link">🏆 Ver Placar</a>
 
   <div class="theme-toggle">
     <input type="checkbox" id="toggleDarkMode">
@@ -20,6 +22,8 @@
   <div id="balloonsContainer"></div>
   <div id="bingoCard" class="bingoCard"></div>
 
+  <script src="github-config.js"></script>
+  <script src="scoreboard.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
