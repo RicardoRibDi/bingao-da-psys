@@ -149,29 +149,6 @@ function generateCard() {
     });
 }
 
-// Win condition
-/*
-    Varre a matriz verificando cada célula marcada.
-
-    Quando encontra uma célular marcada, incrementa o contador para aquela linha/coluna.
-    Array row verifica se existem 5 adjacentes marcador horizontalmente.
-    Array column verifica se existem 5 adjacentes marcador verticalmente.
-    Ex.: Linhas ou Colunas => [0,0,0,5,0] => Bingo
-
-    Variável diagonalMain é incrementada a cada ocorrência em que a row/column sejam iguais.
-        [0,0] [x,x] [x,x] [x,x] [x,x]
-        [x,x] [1,1] [x,x] [x,x] [x,x]
-        [x,x] [x,x] [2,2] [x,x] [x,x]
-        [x,x] [x,x] [x,x] [3,3] [x,x]
-        [x,x] [x,x] [x,x] [x,x] [4,4]
-    Variável diagonalSec é incrementada a cada ocorrência em que a soma de row/column resultam em tamanho da matriz - 1.
-        [x,x] [x,x] [x,x] [x,x] [0,4]
-        [x,x] [x,x] [x,x] [1,3] [x,x]
-        [x,x] [x,x] [2,2] [x,x] [x,x]
-        [x,x] [3,1] [x,x] [x,x] [x,x]
-        [4,0] [x,x] [x,x] [x,x] [x,x]
-    Qualquer uma das duas = 5 => Bingo
-*/
 function verifyBingo() {
     if (gameFinished) return;
 
@@ -210,6 +187,28 @@ function verifyBingo() {
         setTimeout(() => {
             showBingoAnimation();
         }, 50);
+
+        setTimeout(async () => {
+            if (typeof showWinModal === "function") {
+                let attempts = 0;
+                const maxAttempts = 3;
+
+                while (attempts < maxAttempts) {
+                    const winner = await showWinModal(attempts > 0 ? "Esse jogador já ganhou hoje! Tente outro nome:" : null);
+                    if (!winner) break;
+
+                    const result = await incrementScore(winner);
+
+                    if (result === true) break;
+
+                    if (result === "already_won_today") {
+                        attempts++;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }, 1500);
     }
 }
 function showBingoAnimation() {
