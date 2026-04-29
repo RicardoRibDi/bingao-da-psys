@@ -26,9 +26,9 @@ const quotes = [
     "Bom dia Machado",
 
     //Sampaio
-    "Sampaio já foi?",
-	"Gato do Sampaio",
-    "Flashbang no Sampaio",
+    //"Sampaio já foi?",
+	//"Gato do Sampaio",
+    //"Flashbang no Sampaio",
 
     //Geral
     "WSS",
@@ -39,6 +39,7 @@ const quotes = [
 	"Arania",
 	"CELEC",
     "Flexaero",
+    "Goodman",
 
 	"Espero que estejam todos bem",
     "Tu tá mutado",
@@ -53,7 +54,7 @@ const quotes = [
     "Da minha parte é isso",
 
     "Gaspareto",
-	//"D'artagnan",
+	"D'artagnan",
     "Gabrielzinho",
     "Variações de Micaelle",
     "Japa",
@@ -76,7 +77,9 @@ const quotes = [
     "Tá ligado",
     //"Ríder",
     "Falar de estimativa",
-    "Falei com o Milton  ( ͡° ͜ʖ ͡°)"
+    "Falei com o Milton  ( ͡° ͜ʖ ͡°)",
+    "Bug",
+    "Papo de IA"
 ];
 
 // Frases com variacoes
