@@ -5,15 +5,15 @@ const quotes = [
     "Joinha do Prass",
 
     //Mauricio
-    "Maumau Carente",
-	"Maurício interrompeu alguém",
-    "Sons de Maurício",
+    //"Maumau Carente",
+	//"Maurício interrompeu alguém",
+    //"Sons de Maurício",
 
     //Gabriel
     "Beleza beleza",
 
     //Gabriela
-    "LUAN GAMEPLAYS",
+    //"LUAN GAMEPLAYS",
 
     //Nickzinho
     "É",
@@ -31,7 +31,7 @@ const quotes = [
     //"Flashbang no Sampaio",
 
     //Geral
-    "WSS",
+    //"WSS",
 	"Aeromot",
 	"TAM",
     "Compesa",
@@ -55,7 +55,7 @@ const quotes = [
 
     "Gaspareto",
 	"D'artagnan",
-    "Gabrielzinho",
+    //"Gabrielzinho",
     "Variações de Micaelle",
     "Japa",
     "Chama o Laércio",
