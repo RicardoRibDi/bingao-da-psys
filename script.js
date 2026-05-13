@@ -26,9 +26,9 @@ const quotes = [
     "Bom dia Machado",
 
     //Sampaio
-    //"Sampaio já foi?",
-	//"Gato do Sampaio",
-    //"Flashbang no Sampaio",
+    "Sampaio já foi?",
+	"Gato do Sampaio",
+    "Flashbang no Sampaio",
 
     //Geral
     //"WSS",
@@ -57,7 +57,7 @@ const quotes = [
 	"D'artagnan",
     //"Gabrielzinho",
     "Variações de Micaelle",
-    "Japa",
+    //"Japa",
     "Chama o Laércio",
     "Precisar de ajuda é só chamar",
 
