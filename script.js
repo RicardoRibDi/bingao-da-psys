@@ -13,7 +13,7 @@ const quotes = [
     "Beleza beleza",
 
     //Gabriela
-    //"LUAN GAMEPLAYS",
+    "LUAN GAMEPLAYS",
 
     //Nickzinho
     "É",
@@ -53,12 +53,12 @@ const quotes = [
 	"Fui o último?",
     "Da minha parte é isso",
 
-    "Gaspareto",
+    //"Gaspareto",
 	"D'artagnan",
-    //"Gabrielzinho",
+    "Gabrielzinho",
     "Variações de Micaelle",
-    //"Japa",
-    "Chama o Laércio",
+    "Japa",
+    //"Chama o Laércio",
     "Precisar de ajuda é só chamar",
 
 	"Internet Instável",
@@ -83,7 +83,7 @@ const quotes = [
 ];
 
 // Frases com variacoes
-const startedDaily = ["Fernanda", "Gabriel", "Maurício"];
+const startedDaily = ["Fernanda", "Gabriel"];
 const dailyTime = ["30-","30+","40+"];
 
 
