@@ -11,6 +11,7 @@ const quotes = [
 
     //Gabriel
     "Beleza beleza",
+	"Que viagem ✈️🧳🧳",
 
     //Gabriela
     "LUAN GAMEPLAYS",
